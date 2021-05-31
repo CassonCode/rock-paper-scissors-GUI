@@ -1,0 +1,30 @@
+/* CSS reset */
+*,
+*::before,
+*::after {
+    /* box-sizing: border-box; */
+    margin: 0;
+    padding: 0;
+}
+
+
+#hand-rock {
+    background-image: url("Images/icons8-hand-rock-gold-96.png");
+    background-size: cover;
+    background-color: black;
+    border: 2px solid #ce973e;
+    width: 7em;
+    height: 7em;
+    cursor: pointer;
+}
+
+#hand-rock:hover {
+    background-color: #444c56;
+}
+
+#hand-rock:active {
+    background-size: 80% 80%;
+    background-position: center;
+    background-color: black;
+    border: 2px solid white;
+}

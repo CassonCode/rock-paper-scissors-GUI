@@ -16,15 +16,29 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div>
-            <button id="hand-rock"></button>
+        <header>
+            <h1>Rock Paper Scissors</h1>
+        </header>
+        <h2>Round 1</h2>
+        <div class="scores-and-choices">
+            <div class="scores">
+                <p id="player-score">Player Score: 0/5</p>
+                <p id="computer-score">Computer Score: 0/5</p>
+            </div>
+            <div class="choices">
+                <div class="player-choice"></div>
+                <div class="computer-choice"></div>
+            </div>
         </div>
-            
-
-
-
-
-
+        <div class="rock-paper-scissors-buttons">
+            <button id="hand-rock-button"></button>
+            <button id="hand-paper-button"></button>
+            <button id="hand-scissors-button"></button>
+        </div>
+        <div class="new-game-button-container">
+            <button class="new-game-button">New Game</button>
+        </div>
+        
 
         <script src="app.js" async defer></script>
     </body>

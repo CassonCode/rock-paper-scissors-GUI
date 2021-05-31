@@ -2,29 +2,166 @@
 *,
 *::before,
 *::after {
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    background-color: white;
+}
 
-#hand-rock {
+h1 {
+    background-color: #eee;
+    /* color: #4a4a4a; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    outline: 2px solid #4a4a4a;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 2rem;
+    padding: 1.5em 0;
+    outline: 1px solid rgba(0, 0, 0, 0);
+}
+
+/* .scores-and-choices {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    margin: 0 auto;
+    outline: 1px solid rgb(0, 0, 0);
+} */
+
+.scores {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    margin: 0 auto;
+    outline: 1px solid rgba(0, 0, 0, 0);
+}
+
+.choices {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    margin: 1rem auto;
+    padding-right: 10px;
+    outline: 1px solid rgba(0, 0, 0, 0);
+}
+
+.player-choice {
+    background-image: url("Images/icons8-hand-paper-black-96.png");
+    background-size: cover;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+
+.computer-choice {
+    background-image: url("Images/icons8-hand-paper-black-96.png");
+    background-size: cover;
+    width: 120px;
+    height: 120px;
+    border: 1px solid rgba(255, 0, 0, 0);
+}
+
+/*  
+    Rock Paper Scissors Buttons ------------------------------------------------------------------------
+*/
+
+.rock-paper-scissors-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 25%;
+    margin: 0 auto;
+    padding-top: 40px;
+    outline: 1px solid rgba(0, 0, 0, 0);
+}
+
+#hand-rock-button {
     background-image: url("Images/icons8-hand-rock-gold-96.png");
     background-size: cover;
     background-color: black;
     border: 2px solid #ce973e;
-    width: 7em;
-    height: 7em;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
 }
 
-#hand-rock:hover {
-    background-color: #444c56;
+#hand-rock-button:hover {
+    background-color: #000000d7;  /*  444c56  */
 }
 
-#hand-rock:active {
-    background-size: 80% 80%;
+#hand-rock-button:active {
+    background-size: 96% 96%;
     background-position: center;
     background-color: black;
-    border: 2px solid white;
+    border: 4px solid white;
+}
+
+#hand-paper-button {
+    background-image: url("Images/icons8-hand-paper-gold-96.png");
+    background-size: cover;
+    background-color: black;
+    border: 2px solid #ce973e;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+#hand-paper-button:hover {
+    background-color: #000000d7;
+}
+
+#hand-paper-button:active {
+    background-size: 96% 96%;
+    background-position: center;
+    background-color: black;
+    border: 4px solid white;
+}
+
+#hand-scissors-button {
+    background-image: url("Images/icons8-hand-scissors-gold-96.png");
+    background-size: cover;
+    background-color: black;
+    border: 2px solid #ce973e;
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+}
+
+#hand-scissors-button:hover {
+    background-color: #000000d7;
+}
+
+#hand-scissors-button:active {
+    background-size: 96% 96%;
+    background-position: center;
+    background-color: black;
+    border: 4px solid white;
+}
+
+.new-game-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.new-game-button {
+    background-color: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    margin-top: 60px;
+    padding: 1em;
 }

@@ -1,90 +1,150 @@
-// Array of options from which the computer can choose 
+const currentRoundText = document.querySelector("h2");
+const playerScore = document.querySelector("#player-score");
+const computerScore = document.querySelector("#computer-score");
+const playerChoice = document.querySelector(".player-choice");
+const computerChoice = document.querySelector(".computer-choice");
+const rockButton = document.querySelector("#hand-rock-button");
+const paperButton = document.querySelector("#hand-paper-button");
+const scissorsButton = document.querySelector("#hand-scissors-button");
+const newGameButton = document.querySelector(".new-game-button");
+ 
 let computerChoicesArray = ["rock", "paper", "scissors"];
-// Initialize the player and computer's scores
 let currentPlayerScore = 0;
 let currentComputerScore = 0;
+let currentRound = 1;
 
 // Calculate a random integer that exists within a given interval (from 'min' to 'max')
 function calcRandomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
-  // Return a random element from 'computerChoicesArray'
+// Return a random element from 'computerChoicesArray'
 function computerPlay() {
     return computerChoicesArray[calcRandomIntFromInterval(0, 2)];
 }
 
-// Play one round
-function playRound(playerSelection, computerSelection) {
-    playerSelection.toLowerCase();
+function resetGame() {
+    currentPlayerScore = 0;
+    currentComputerScore = 0;
+    currentRound = 1;
+    currentRoundText.textContent = "Round 1";
+    playerScore.textContent = "Player Score: 0/5";
+    computerScore.textContent = "Computer Score: 0/5";
+    playerChoice.style.backgroundImage = "none";
+    playerChoice.style.boxShadow = "none";
+    computerChoice.style.backgroundImage = "none";
+    computerChoice.style.boxShadow = "none";
+}
+
+// function playerWinsRound() {
+//     playerChoice.style.boxShadow = "0 0 15px 5px #6FC96F";
+// }
+
+// function playerLosesRound() {
+//     playerChoice.style.boxShadow = "0 0 15px 5px #EA4D4D";
+// }
+
+// function computerWinsRound() {
+//     computerChoice.style.boxShadow = "0 0 15px 5px #6FC96F";
+// }
+
+// function computerLosesRound() {
+//     computerChoice.style.boxShadow = "0 0 15px 5px #EA4D4D";
+// }
+
+// function tieRound() {
+//     playerChoice.style.boxShadow = "0 0 15px 5px #ccc";
+//     computerChoice.style.boxShadow = "0 0 15px 5px #ccc";
+// }
+
+function playGame(playerSelection, computerSelection) {
+    playerSelection = this.dataset.button;
+    computerSelection = computerPlay();
+    currentRoundText.textContent = "Round " + currentRound;
 
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
-            return "It's a DRAW!";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-gray-96.png')";
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-gray-96.png')";
+            //tieRound();
         }
         else if (computerSelection === "paper") {
             currentComputerScore++;
-            return "You LOSE! Paper beats rock!";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-red-96.png')";
+            //playerLosesRound();
+            computerScore.textContent = "Computer Score: " + currentComputerScore + "/5";
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-green-96.png')";
+            //computerWinsRound();
         }
         else {
             currentPlayerScore++;
-            return "You WIN! Rock beats scissors!";
+            playerScore.textContent = "Player Score: " + currentPlayerScore + "/5";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-green-96.png')";
+            //playerWinsRound();
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-red-96.png')";
+            //computerLosesRound();
         }
     }
     else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
             currentPlayerScore++;
-            return "You WIN! Paper beats rock!";
+            playerScore.textContent = "Player Score: " + currentPlayerScore + "/5";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-green-96.png')";
+            //playerWinsRound();
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-red-96.png')";
+            //computerLosesRound();
         }
         else if (computerSelection === "paper") {
-            return "It's a DRAW!";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-gray-96.png')";
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-gray-96.png')";
+            //tieRound();
         }
         else {
             currentComputerScore++;
-            return "You LOSE! Scissors beats paper!";
+            computerScore.textContent = "Computer Score: " + currentComputerScore + "/5";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-red-96.png')";
+            //playerLosesRound();
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-green-96.png')";
+            //computerWinsRound();
         }
     }
     else if (playerSelection === "scissors") {
         if (computerSelection === "rock") {
             currentComputerScore++;
-            return "You LOSE! Rock beats paper!";
+            computerScore.textContent = "Computer Score: " + currentComputerScore + "/5";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-red-96.png')";
+            //playerLosesRound();
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-green-96.png')";
+            //computerWinsRound();
         }
         else if (computerSelection === "paper") {
             currentPlayerScore++;
-            return "You WIN! Scissors beats paper!";
+            playerScore.textContent = "Player Score: " + currentPlayerScore + "/5";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-green-96.png')";
+            //playerWinsRound();
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-red-96.png')";
+            //computerLosesRound();
         }
         else {
-            return "It's a DRAW!";
+            playerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-gray-96.png')";
+            computerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-gray-96.png')";
+            //tieRound();
         }
     }
+
+    currentRound++;
+
+    if (currentComputerScore === 5) {
+        alert("You LOSE!");
+        resetGame();
+    }
+    else if (currentPlayerScore === 5) {
+        alert("You WIN!");
+        resetGame();
+    }   
 }
 
-// Create a five round game
-function game() {
-    let playerRoundSelection = "";
-    let computerRoundSelection = "";
-    let currentRound = 0;
-
-    for (i = 0; i < 5; i++) {
-        playerRoundSelection = prompt("Choose: rock, paper, or scissors", "");
-        computerRoundSelection = computerPlay();
-        currentRound++;
-        playRound(playerRoundSelection, computerRoundSelection);
-        console.log("ROUND " + currentRound +
-                    "\nPlayer score / choice:     " + currentPlayerScore + " / " + playerRoundSelection +
-                    "\nComputer score / choice:     " + currentComputerScore + " / " + computerRoundSelection);
-    }
-
-    if (currentPlayerScore === currentComputerScore) {
-        console.log("The match is a DRAW!");
-    }
-    else if (currentPlayerScore > currentComputerScore) {
-        console.log("CONGRATS! You WIN the match!");
-    }
-    else {
-        console.log("Oh no! You LOSE the match!");
-    }
-}
-
-// Run the game
-//game();
+rockButton.addEventListener("click", playGame);
+paperButton.addEventListener("click", playGame);
+scissorsButton.addEventListener("click", playGame);
+newGameButton.addEventListener("click", resetGame);

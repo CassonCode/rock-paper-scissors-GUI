@@ -8,35 +8,24 @@
 }
 
 html {
-    background-color: white;
+    background-color: #fffbf6;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    background-color: #eee;
-    /* color: #4a4a4a; */
-    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0 10px 30px 15px rgba(0, 0, 0, 0.075);
     font-size: 3rem;
-    outline: 2px solid #4a4a4a;
+    /* outline: 2px solid #4a4a4a; */
     text-align: center;
     padding: 0.5em 0;
 }
 
 h2 {
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 2rem;
-    padding: 1.5em 0;
+    padding: 1.2em 0;
     outline: 1px solid rgba(0, 0, 0, 0);
 }
-
-/* .scores-and-choices {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 50%;
-    margin: 0 auto;
-    outline: 1px solid rgb(0, 0, 0);
-} */
 
 .scores {
     display: flex;
@@ -45,6 +34,7 @@ h2 {
     width: 25%;
     margin: 0 auto;
     outline: 1px solid rgba(0, 0, 0, 0);
+    padding-bottom: 10px;
 }
 
 .choices {
@@ -58,16 +48,18 @@ h2 {
 }
 
 .player-choice {
-    background-image: url("Images/icons8-hand-paper-black-96.png");
+    /* background-image: url("Images/icons8-hand-paper-black-96.png"); */
     background-size: cover;
+    border-radius: 50%;
     width: 120px;
     height: 120px;
     border: 1px solid rgba(255, 0, 0, 0);
 }
 
 .computer-choice {
-    background-image: url("Images/icons8-hand-paper-black-96.png");
+    /* background-image: url("Images/icons8-hand-paper-black-96.png"); */
     background-size: cover;
+    border-radius: 50%;
     width: 120px;
     height: 120px;
     border: 1px solid rgba(255, 0, 0, 0);
@@ -88,17 +80,20 @@ h2 {
 }
 
 #hand-rock-button {
-    background-image: url("Images/icons8-hand-rock-gold-96.png");
+    background-image: url("Images/icons8-hand-rock-white-96.png");
     background-size: cover;
     background-color: black;
-    border: 2px solid #ce973e;
+    border: 2px solid black;
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.322);
     width: 120px;
     height: 120px;
     cursor: pointer;
 }
 
 #hand-rock-button:hover {
-    background-color: #000000d7;  /*  444c56  */
+    background-color: #000000c9;  /*  444c56  */
+    background-size: 105% 105%;
+    background-position: center;
 }
 
 #hand-rock-button:active {
@@ -106,20 +101,24 @@ h2 {
     background-position: center;
     background-color: black;
     border: 4px solid white;
+    box-shadow: none;
 }
 
 #hand-paper-button {
-    background-image: url("Images/icons8-hand-paper-gold-96.png");
+    background-image: url("Images/icons8-hand-paper-white-96.png");
     background-size: cover;
     background-color: black;
-    border: 2px solid #ce973e;
+    border: 2px solid black;
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.322);
     width: 120px;
     height: 120px;
     cursor: pointer;
 }
 
 #hand-paper-button:hover {
-    background-color: #000000d7;
+    background-color: #000000c9;
+    background-size: 105% 105%;
+    background-position: center;
 }
 
 #hand-paper-button:active {
@@ -127,20 +126,24 @@ h2 {
     background-position: center;
     background-color: black;
     border: 4px solid white;
+    box-shadow: none;
 }
 
 #hand-scissors-button {
-    background-image: url("Images/icons8-hand-scissors-gold-96.png");
+    background-image: url("Images/icons8-hand-scissors-white-96.png");
     background-size: cover;
     background-color: black;
-    border: 2px solid #ce973e;
+    border: 2px solid black;
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.322);
     width: 120px;
     height: 120px;
     cursor: pointer;
 }
 
 #hand-scissors-button:hover {
-    background-color: #000000d7;
+    background-color: #000000c9;
+    background-size: 105% 105%;
+    background-position: center;
 }
 
 #hand-scissors-button:active {
@@ -148,6 +151,7 @@ h2 {
     background-position: center;
     background-color: black;
     border: 4px solid white;
+    box-shadow: none;
 }
 
 .new-game-button-container {
@@ -158,10 +162,115 @@ h2 {
 .new-game-button {
     background-color: black;
     border: none;
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.322);
     color: white;
     cursor: pointer;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
-    margin-top: 60px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-top: 50px;
     padding: 1em;
+}
+
+.new-game-button:hover {
+    background-color: #ce973e;
+    box-shadow: 0px 4px 8px 4px rgba(0, 0, 0, 0.322);  /* #ce973e57 */
+    color: black;
+    letter-spacing: 1px;
+    outline: 3px solid black;
+}
+
+.new-game-button:active {
+    box-shadow: none;
+    font-size: 14px;
+    margin-top: 55px;
+}
+
+/*
+    Media Queries -------------------------------------------------------------------------------------------
+*/
+
+@media (max-width: 1460px) {
+    .rock-paper-scissors-buttons {
+        width: 35%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .scores {
+        width: 30%;
+    }
+}
+
+@media (max-width: 1050px) {
+    .scores {
+        width: 40%;
+    }
+    .rock-paper-scissors-buttons {
+        width: 40%;
+    }
+    .choices {
+        width: 35%;
+    }
+}
+
+@media (max-width: 920px) {
+    .scores {
+        width: 50%;
+    }
+    .rock-paper-scissors-buttons {
+        width: 50%;
+    }
+    .choices {
+        width: 45%;
+    }
+}
+
+@media (max-width: 750px) {
+    .scores {
+        width: 60%;
+    }
+    .rock-paper-scissors-buttons {
+        width: 60%;
+    }
+    .choices {
+        width: 55%;
+    }
+}
+
+@media (max-width: 620px) {
+    .scores {
+        width: 70%;
+    }
+    .rock-paper-scissors-buttons {
+        width: 70%;
+    }
+    .choices {
+        width: 65%;
+    }
+}
+
+@media (max-width: 540px) {
+    .rock-paper-scissors-buttons {
+        width: 80%;
+    }
+}
+
+@media (max-width: 465px) {
+    .scores {
+        width: 80%;
+    }
+    .rock-paper-scissors-buttons {
+        width: 90%;
+    }
+    .choices {
+        width: 75%;
+    }
+}
+
+@media (max-width: 400px) {
+    .rock-paper-scissors-buttons {
+        width: 100%;
+    }
 }

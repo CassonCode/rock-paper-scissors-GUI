@@ -36,27 +36,6 @@ function resetGame() {
     computerChoice.style.boxShadow = "none";
 }
 
-// function playerWinsRound() {
-//     playerChoice.style.boxShadow = "0 0 15px 5px #6FC96F";
-// }
-
-// function playerLosesRound() {
-//     playerChoice.style.boxShadow = "0 0 15px 5px #EA4D4D";
-// }
-
-// function computerWinsRound() {
-//     computerChoice.style.boxShadow = "0 0 15px 5px #6FC96F";
-// }
-
-// function computerLosesRound() {
-//     computerChoice.style.boxShadow = "0 0 15px 5px #EA4D4D";
-// }
-
-// function tieRound() {
-//     playerChoice.style.boxShadow = "0 0 15px 5px #ccc";
-//     computerChoice.style.boxShadow = "0 0 15px 5px #ccc";
-// }
-
 function playGame(playerSelection, computerSelection) {
     playerSelection = this.dataset.button;
     computerSelection = computerPlay();
@@ -66,23 +45,18 @@ function playGame(playerSelection, computerSelection) {
         if (computerSelection === "rock") {
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-gray-96.png')";
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-gray-96.png')";
-            //tieRound();
         }
         else if (computerSelection === "paper") {
             currentComputerScore++;
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-red-96.png')";
-            //playerLosesRound();
             computerScore.textContent = "Computer Score: " + currentComputerScore + "/5";
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-green-96.png')";
-            //computerWinsRound();
         }
         else {
             currentPlayerScore++;
             playerScore.textContent = "Player Score: " + currentPlayerScore + "/5";
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-green-96.png')";
-            //playerWinsRound();
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-red-96.png')";
-            //computerLosesRound();
         }
     }
     else if (playerSelection === "paper") {
@@ -90,22 +64,17 @@ function playGame(playerSelection, computerSelection) {
             currentPlayerScore++;
             playerScore.textContent = "Player Score: " + currentPlayerScore + "/5";
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-green-96.png')";
-            //playerWinsRound();
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-red-96.png')";
-            //computerLosesRound();
         }
         else if (computerSelection === "paper") {
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-gray-96.png')";
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-gray-96.png')";
-            //tieRound();
         }
         else {
             currentComputerScore++;
             computerScore.textContent = "Computer Score: " + currentComputerScore + "/5";
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-red-96.png')";
-            //playerLosesRound();
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-green-96.png')";
-            //computerWinsRound();
         }
     }
     else if (playerSelection === "scissors") {
@@ -113,22 +82,17 @@ function playGame(playerSelection, computerSelection) {
             currentComputerScore++;
             computerScore.textContent = "Computer Score: " + currentComputerScore + "/5";
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-red-96.png')";
-            //playerLosesRound();
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-rock-green-96.png')";
-            //computerWinsRound();
         }
         else if (computerSelection === "paper") {
             currentPlayerScore++;
             playerScore.textContent = "Player Score: " + currentPlayerScore + "/5";
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-green-96.png')";
-            //playerWinsRound();
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-paper-red-96.png')";
-            //computerLosesRound();
         }
         else {
             playerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-gray-96.png')";
             computerChoice.style.backgroundImage = "url('Images/icons8-hand-scissors-gray-96.png')";
-            //tieRound();
         }
     }
 
